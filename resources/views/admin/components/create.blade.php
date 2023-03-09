@@ -25,28 +25,3 @@
         </div>
     </div>
 </div>
-    
-@push('scripts')
-    <script>
-        $('#form-adicionar').on('submit', function (event) {
-            Swal.fire({
-                title: 'Cadastrando...',
-                allowOutsideClick: false,
-                width: 400,
-                showCancelButton: false,
-                showConfirmButton: false,
-                onBeforeOpen: () => {
-                    Swal.showLoading()
-                },
-            });
-        });
-
-        function setForm() {
-            all_quantidade = document.getElementById("all_quantidade");
-            all_quantidade.value = "";
-            all_peso = document.getElementById("all_peso");
-            all_peso.value = "";
-        }
-
-    </script>
-@endpush

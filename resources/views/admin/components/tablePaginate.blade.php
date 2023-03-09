@@ -41,7 +41,7 @@
             <tfoot>
                 {{ $footer ?? null }}
             </tfoot>
-        </table>>
+        </table>    
     </div>
 </div>
 @else

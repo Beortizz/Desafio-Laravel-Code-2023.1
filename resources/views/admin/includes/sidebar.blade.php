@@ -2,7 +2,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4" style="overflow-x: hidden;">
     <span>
         <a href="/" id="link-logo" class="brand-link">
-            <h3 class="ml-3">Bombons da Lu</h3>
+            <h3 class="ml-3">Sistema</h3>
         </a>
     </span>
 
