@@ -6,6 +6,9 @@ use App\Models\Lesson;
 use App\Models\Student;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+use Carbon\CarbonPeriod;
+use DateTime;
 
 class LessonController extends Controller
 {
@@ -43,7 +46,24 @@ class LessonController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $allLessons = Lesson::all();
+        $startRequest = new DateTime($request->start_time);
+        $endRequest = new DateTime($request->end_time);
+        
+        foreach ($allLessons as $lesson)
+        {
+            $startLesson = new DateTime($lesson->start_time);
+            $endLesson = new DateTime($lesson->end_time);
+            $lessonPeriod = CarbonPeriod::create($startLesson, $endLesson);
+            $requestPeriod = CarbonPeriod::create($startRequest, $endRequest);
+        
+            if ($lessonPeriod->overlaps($requestPeriod))
+            {
+                return redirect()->route('lessons.create');    
+            }
+        }
+        
         Lesson::create([
             'user_id' => $request->user,
             'student_id' => $request->student,
@@ -78,7 +98,7 @@ class LessonController extends Controller
         $users = User::all();
         $students = Student::all();
         
-        return view('admin.lessons.create', compact('users', 'lesson', 'students'));
+        return view('admin.lessons.edit', compact('users', 'lesson', 'students'));
     }
 
     /**
@@ -91,7 +111,23 @@ class LessonController extends Controller
     public function update(Request $request, Lesson $lesson)
     {
         //
-        $student->update($request->all());
+        $allLessons = Lesson::all();
+        $startRequest = new DateTime($request->start_time);
+        $endRequest = new DateTime($request->end_time);
+        
+        foreach ($allLessons as $less)
+        {
+            $startLesson = new DateTime($less->start_time);
+            $endLesson = new DateTime($less->end_time);
+            $lessonPeriod = CarbonPeriod::create($startLesson, $endLesson);
+            $requestPeriod = CarbonPeriod::create($startRequest, $endRequest);
+        
+            if ($lessonPeriod->overlaps($requestPeriod))
+            {
+                return redirect()->route('lessons.edit', $lesson);    
+            }
+        }
+        $lesson->update($request->all());
         return redirect()->route('lessons.index');
     }
 
