@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\LessonController;
+use App\Http\Controllers\SendeMailController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,7 +30,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('/users', UserController::class);
     Route::resource('/students', StudentController::class);
     Route::resource('/lessons', LessonController::class);
-    
+    Route::get('/mailForm', [SendEmailController::class, 'index'])->name('mail.mailForm');
+    Route::post('/sendEmail', [SendEmailController::class, 'send'])->name('mail.sendEmail');
 });
 
 Route::middleware('auth')->group(function () {
