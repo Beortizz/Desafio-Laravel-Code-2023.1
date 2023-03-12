@@ -1,5 +1,5 @@
 <!-- Navbar -->
-<nav class="main-header navbar navbar-expand navbar-light" style="background: rgba(255 255 255 / .2); backdrop-filter: blur(1rem)">
+<nav class="main-header navbar navbar-expand navbar-light">
     <ul class="navbar-nav">
         <li class="nav-item">
             <a class="nav-link" onclick="responsiveLogo()" data-widget="pushmenu" href="#"><svg

@@ -10,18 +10,19 @@
         <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}"/>     
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
         {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> --}}
+        <link href="{{ asset('css/master.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         <link rel="shortcut icon" href="{{ asset('img/favicon.ico') }}"/>
         @stack('styles')
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-dark-5@1.1.3/dist/css/bootstrap-dark.min.css" rel="stylesheet">
     </head>
 
-    <body class="hold-transition sidebar-mini layout-fixed" style="background: url('/img/background.png'); background-size: cover">
+    <body class="hold-transition sidebar-mini layout-fixed">
         {{-- @include('layouts.includes.preeloader') --}}
         <div class="wrapper">
             @include('admin.includes.navbar')
             @include('admin.includes.sidebar')
-            <div class="content-wrapper" style="background: none">
+            <div class="content-wrapper">
                 <div class="content-header">
                     <div class="container-fluid">
                         <div class="row mb-2">
