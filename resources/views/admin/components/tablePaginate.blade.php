@@ -1,5 +1,5 @@
 @if ($body != '' || !($createFirst ?? true))
-<div class="card">
+<div class="card" style="background: rgba(127, 66, 179, .7); backdrop-filter: blur(1rem)">
     @if (isset($create) || isset($title))
     <div class="card-header card-outline card-primary">
         <h3 class="float-left m-0 table-title">{{ $title ?? null }}</h3>

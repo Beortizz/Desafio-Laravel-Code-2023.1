@@ -1,5 +1,5 @@
 <!-- Sidebar -->
-<aside class="main-sidebar sidebar-dark-primary elevation-4" style="overflow-x: hidden;">
+<aside class="main-sidebar sidebar-dark-primary elevation-4" style="overflow-x: hidden; background: linear-gradient(to right bottom, rgba(127, 66, 179, .9), rgba(62, 35, 108, .9)); backdrop-filter: blur(1rem)">
     <span>
         <a href="/users" id="link-logo" class="brand-link">
             <h3 class="ml-3">Sistema</h3>
