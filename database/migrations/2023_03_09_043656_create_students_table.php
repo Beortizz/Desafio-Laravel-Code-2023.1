@@ -20,7 +20,7 @@ return new class extends Migration
             $table->date('birth_date');
             $table->string('address');
             $table->string('phone_number');
-            $table->date('pay_date');
+            $table->date('pay_date')->nullable();
             $table->date('due_date');
             $table->timestamps();
         });

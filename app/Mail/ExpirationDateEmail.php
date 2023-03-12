@@ -9,32 +9,25 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class NoticeMail extends Mailable implements ShouldQueue
+class ExpirationDateEmail extends Mailable
 {
     use Queueable, SerializesModels;
-
-
 
     /**
      * Create a new message instance.
      *
      * @return void
-     * 
-     * 
-     */
-     public $subject;
-     public $body;
-
-    public function __construct($subject, $body)
+     */ 
+    protected $student;
+    public function __construct($student)
     {
-
-        $this->subject = $subject;
-        $this->body = $body;
+        //
+        $this->student = $student;
     }
 
     public function build()
     {
-        return $this->markdown('admin.mail.mailMarkdown');
+        return $this->markdown('admin.mail.expirationDate');
     }   
 
     /**
@@ -42,7 +35,6 @@ class NoticeMail extends Mailable implements ShouldQueue
      *
      * @return \Illuminate\Mail\Mailables\Envelope
      */
-
 
     /**
      * Get the message content definition.

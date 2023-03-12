@@ -28,7 +28,6 @@ class StudentsFormRequest extends FormRequest
             'email' => 'required|email',
             'phone_number' => 'required|numeric',
             'address' => 'required',
-            'pay_date' => 'required',
             'due_date' => 'required',
         ];
     }
