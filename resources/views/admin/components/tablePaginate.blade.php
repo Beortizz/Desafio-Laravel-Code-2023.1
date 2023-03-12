@@ -19,16 +19,6 @@
     </div>
     @endif
     <div class="card-body table-responsive table-sm">
-        <div class="row d-flex justify-content-between align-items-center mx-0">
-            <form id="form-search" action="{{ route(Route::getCurrentRoute()->getName()) }}" method="GET">
-                <div class="d-flex justify-content-end mb-2">
-                    <div class="form-check form-check-inline">
-                        <label class="form-check-label mr-2">Pesquisar: </label>
-                        <input type="search" name="search" id="search" class="form-control form-control-sm" value="{{ request()->get('search') }}">
-                    </div>
-                </div>
-            </form>
-        </div>
         <table id="example" class="w-100 table table-hover dataTableSimple table-striped">
             <thead class="">
                 <tr>
