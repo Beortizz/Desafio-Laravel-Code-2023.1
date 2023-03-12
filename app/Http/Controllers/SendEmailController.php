@@ -16,7 +16,7 @@ class SendEmailController extends Controller
     }
     public function send(Request $request)
     {  
-        
+        $this->authorize('sendEmail', User::class);
         $subject = $request->subject;
         $body = $request->body;
     

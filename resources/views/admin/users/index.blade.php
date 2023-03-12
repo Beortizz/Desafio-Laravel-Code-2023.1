@@ -2,7 +2,7 @@
 @section('content')
 
 @component('admin.components.tablePaginate')
-
+@slot('create', route('users.create'))
 @slot('title', 'Usuários')
 
 @slot('head')
@@ -49,7 +49,9 @@
 @endslot
 
 @endcomponent
-
+@slot('paginate')
+    {{ $users->links('pagination::bootstrap-5')}}
+@endslot
 @endsection
 
 @push('scripts')

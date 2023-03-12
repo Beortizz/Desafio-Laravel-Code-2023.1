@@ -1,5 +1,5 @@
 @if ($body != '' || !($createFirst ?? true))
-<div class="card mainTable">
+<div class="card">
     @if (isset($create) || isset($title))
     <div class="card-header card-outline card-primary">
         <h3 class="float-left m-0 table-title">{{ $title ?? null }}</h3>
@@ -31,7 +31,10 @@
             <tfoot>
                 {{ $footer ?? null }}
             </tfoot>
-        </table>    
+        </table> 
+        <div class="d-flex justify-content-sm-end mt-4">
+            {{ $paginate ?? null }}
+        </div>   
     </div>
 </div>
 @else

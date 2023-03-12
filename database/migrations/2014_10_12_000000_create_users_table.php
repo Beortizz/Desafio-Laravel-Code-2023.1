@@ -21,9 +21,10 @@ return new class extends Migration
             $table->string('password');
             $table->date('birth_date');
             $table->string('address');
+            $table->boolean('permission');
             $table->string('phone_number');
-            $table->dateTime('enter_hour');
-            $table->dateTime('leave_hour');
+            $table->time('enter_hour');
+            $table->time('leave_hour');
             $table->rememberToken();
             $table->timestamps();
         });

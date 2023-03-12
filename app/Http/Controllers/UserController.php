@@ -17,7 +17,7 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {   
-        $users = User::all();
+        $users = User::paginate(8);
         // $msg = $request->session()->get('msg');
         return view('admin.users.index', compact('users'));
     }
@@ -27,6 +27,18 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function create()
+    {   $user = new User();
+        return view('admin.users.create', compact('user'));
+    }
+
+    public function store(UsersFormRequest $request)
+    {
+        $this->authorize('create', $request);
+        User::create($request->all());
+        $request->session()->flash('msg', 'Usuário criado com sucesso');
+        return redirect()->route('users.index');
+    }
    
 
     /**
@@ -82,6 +94,7 @@ class UserController extends Controller
      */
     public function destroy(User $user, Request $request)
     {
+        $this->authorize('delete', $user);
         $request->session()->flash('msg', 'Usuário excluído com sucesso');
         User::destroy($user->id);
         return redirect()->route('users.index');

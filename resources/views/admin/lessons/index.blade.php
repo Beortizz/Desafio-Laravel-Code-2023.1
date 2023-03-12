@@ -45,7 +45,9 @@
 @endslot
 
 @endcomponent
-
+@slot('paginate')
+    {{ $lessons->links('pagination::bootstrap-5')}}
+@endslot
 @endsection
 
 @push('scripts')

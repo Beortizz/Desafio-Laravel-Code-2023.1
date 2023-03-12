@@ -25,6 +25,7 @@ class User extends Authenticatable
         'birth_date',
         'address', 
         'telephone',
+        'permission',
         'phone_number',
         'enter_hour',
         'leave_hour',

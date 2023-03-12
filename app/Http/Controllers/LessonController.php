@@ -19,7 +19,7 @@ class LessonController extends Controller
      */
     public function index()
     {
-        $lessons = Lesson::with('user', 'student')->get();
+        $lessons = Lesson::paginate(8);
         return view('admin.lessons.index', compact('lessons'));
     }
 
@@ -46,7 +46,6 @@ class LessonController extends Controller
      */
     public function store(Request $request)
     {
-
         $allLessons = Lesson::all();
         $startRequest = new DateTime($request->start_time);
         $endRequest = new DateTime($request->end_time);
@@ -111,6 +110,9 @@ class LessonController extends Controller
     public function update(Request $request, Lesson $lesson)
     {
         //
+        $user = auth()->user();
+   
+        $this->authorize('update', $user, $request);
         $allLessons = Lesson::all();
         $startRequest = new DateTime($request->start_time);
         $endRequest = new DateTime($request->end_time);

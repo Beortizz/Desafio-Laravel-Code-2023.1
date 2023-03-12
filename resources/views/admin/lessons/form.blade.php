@@ -14,6 +14,7 @@
         <select class="form-control select2" name="student" id="student">
             <option> </option>
             @foreach($students as $student)
+                
                 <option value="{{ $student->id }}"  {{old('user', $lesson->student_id) == $student->id ? 'selected' : '' }}>{{ $student->name }}</option>"
             @endforeach
         </select>

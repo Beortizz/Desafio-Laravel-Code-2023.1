@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        \App\Models\User::factory(7)->create();
+        \App\Models\Student::factory(50)->create();
 
     // '   ' \App\Models\User::factory()->create([
     //         'name' => 'Test User',
@@ -31,6 +32,7 @@ class DatabaseSeeder extends Seeder
         'password' => Hash::make('bernardo1234'),
         'birth_date' => Carbon::create(2003, 1, 28),    
         'address' => 'rua tres',
+        'permission' => false,
         'phone_number' => '24999999999',
         'enter_hour' => Carbon::now()->hour(8)->minute(30), 
         'leave_hour' => Carbon::now()->hour(16)->minute(30),   
