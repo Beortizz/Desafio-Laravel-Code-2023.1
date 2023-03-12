@@ -16,12 +16,12 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-dark-5@1.1.3/dist/css/bootstrap-dark.min.css" rel="stylesheet">
     </head>
 
-    <body class="hold-transition sidebar-mini layout-fixed">
+    <body class="hold-transition sidebar-mini layout-fixed" style="background: url('/img/background.png'); background-size: cover">
         {{-- @include('layouts.includes.preeloader') --}}
         <div class="wrapper">
             @include('admin.includes.navbar')
             @include('admin.includes.sidebar')
-            <div class="content-wrapper">
+            <div class="content-wrapper" style="background: none">
                 <div class="content-header">
                     <div class="container-fluid">
                         <div class="row mb-2">

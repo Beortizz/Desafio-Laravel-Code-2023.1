@@ -1,5 +1,5 @@
 <!-- Navbar -->
-<nav class="main-header navbar navbar-expand navbar-light">
+<nav class="main-header navbar navbar-expand navbar-light" style="background: rgba(255 255 255 / .2); backdrop-filter: blur(1rem)">
     <ul class="navbar-nav">
         <li class="nav-item">
             <a class="nav-link" onclick="responsiveLogo()" data-widget="pushmenu" href="#"><svg
@@ -13,7 +13,7 @@
     <ul class="navbar-nav ml-auto mr-3">
         <form method="POST" action="{{ route('logout') }}">
             @csrf
-            <button type="submit" class="border"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-power" viewBox="0 0 16 16">
+            <button type="submit" class="btn btn-outline-danger" style="display: flex;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-power" viewBox="0 0 16 16">
                     <path d="M7.5 1v7h1V1h-1z" />
                     <path d="M3 8.812a4.999 4.999 0 0 1 2.578-4.375l-.485-.874A6 6 0 1 0 11 3.616l-.501.865A5 5 0 1 1 3 8.812z" />
             </svg></button>
