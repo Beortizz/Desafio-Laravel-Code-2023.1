@@ -6,6 +6,7 @@ use App\Http\Controllers\StudentController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\SendeMailController;
 use Illuminate\Support\Facades\Route;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('admin.users.index');
+    $users = User::paginate(8);
+    return view('admin.users.index', compact('users'));
 });
 
 Route::get('/dashboard', function () {
