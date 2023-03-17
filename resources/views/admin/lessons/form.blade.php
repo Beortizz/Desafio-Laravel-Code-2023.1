@@ -1,12 +1,9 @@
 <div class="row">
     <div class="form-group col-sm-6">
         <label for="user" class="required">Nome do Funcionário</label>
-        <select class="form-control select2" name="user" id="user" 
-        >
+        <select class="form-control select2" name="user" id="user">
             <option> </option>
-            @foreach($users as $user)
-                <option value="{{ $user->id }}" {{old('user', $lesson->user_id) == $user->id ? 'selected' : '' }} >{{ $user->name }}</option>"
-            @endforeach
+            <option value="{{ auth()->user()->id }}" selected>{{ auth()->user()->name }}</option> 
         </select>
     </div>
     <div class="form-group col-sm-6">
