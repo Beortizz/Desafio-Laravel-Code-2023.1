@@ -63,8 +63,8 @@ class User extends Authenticatable
             'Data de nascimento' => $this->birth_date,
             'Endereço' => $this->address,
             'Telefone' => $this->phone_number,
-            'Horário de Entradas' => explode(' ', $this->enter_hour)[1],
-            'Horário de Saída' => explode(' ', $this->leave_hour)[1],
+            'Horário de Entradas' => $this->enter_hour,
+            'Horário de Saída' =>  $this->leave_hour,
         ];
     }
 }

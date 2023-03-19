@@ -32,8 +32,22 @@ class DatabaseSeeder extends Seeder
         'password' => Hash::make('bernardo1234'),
         'birth_date' => Carbon::create(2003, 1, 28),    
         'address' => 'rua tres',
-        'permission' => false,
+        'permission' => true,
         'phone_number' => '24999999999',
+        'enter_hour' => Carbon::now()->hour(8)->minute(30), 
+        'leave_hour' => Carbon::now()->hour(16)->minute(30),   
+    ]);
+    $user->email_verified_at = now();
+    $user->save();
+
+    $user = User::create([
+        'name' =>  'Cleber',
+        'email' => 'guest@gmail.com',
+        'password' => Hash::make('bernardo1234'),
+        'birth_date' => Carbon::create(2003, 1, 29),    
+        'address' => 'rua 4',
+        'permission' => false,
+        'phone_number' => '24999999969',
         'enter_hour' => Carbon::now()->hour(8)->minute(30), 
         'leave_hour' => Carbon::now()->hour(16)->minute(30),   
     ]);

@@ -21,7 +21,7 @@ return new class extends Migration
             $table->string('password');
             $table->date('birth_date');
             $table->string('address');
-            $table->boolean('permission');
+            $table->boolean('permission')->default(false);
             $table->string('phone_number');
             $table->time('enter_hour');
             $table->time('leave_hour');

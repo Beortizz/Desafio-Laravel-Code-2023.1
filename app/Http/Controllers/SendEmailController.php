@@ -16,19 +16,23 @@ class SendEmailController extends Controller
     }
     public function send(Request $request)
     {  
-        $this->authorize('sendEmail', User::class);
-        $subject = $request->subject;
-        $body = $request->body;
-    
-        $eventNoticeMail = new SendEmail(
-            $subject,
-            $body
-        );
+        $user = auth()->user();
+        if($user->permission) {  
+            $subject = $request->subject;
+            $body = $request->body;
+        
+            $eventNoticeMail = new SendEmail(
+                $subject,
+                $body
+            );
       
         
-          event($eventNoticeMail);
+            event($eventNoticeMail);
 
-        return redirect()->back()->with('success', 'Email enviado com sucesso!');
+            return redirect()->back()->with('success', 'Email enviado com sucesso!');
+        }else{
+            return abort(403);
+        }
     }
 
 }

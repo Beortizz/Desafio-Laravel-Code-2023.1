@@ -17,7 +17,7 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {   
-        $users = User::paginate(8);
+        $users = User::paginate(10);
         // $msg = $request->session()->get('msg');
         return view('admin.users.index', compact('users'));
     }
@@ -34,8 +34,18 @@ class UserController extends Controller
 
     public function store(UsersFormRequest $request)
     {
-        $this->authorize('create', $request);
-        User::create($request->all());
+        $user = auth()->user();
+        $this->authorize('create', $user);
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => '1234',
+            'birth_date' => $request->birth_date,
+            'phone_number' => $request->phone_number,
+            'address' => $request->address,
+            'enter_hour' => $request->enter_hour,
+            'leave_hour' => $request->leave_hour,
+        ]);
         $request->session()->flash('msg', 'Usuário criado com sucesso');
         return redirect()->route('users.index');
     }
@@ -94,7 +104,8 @@ class UserController extends Controller
      */
     public function destroy(User $user, Request $request)
     {
-        $this->authorize('delete', $user);
+        
+        $this->authorize('delete', $user);   
         $request->session()->flash('msg', 'Usuário excluído com sucesso');
         User::destroy($user->id);
         return redirect()->route('users.index');

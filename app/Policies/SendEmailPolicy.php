@@ -5,7 +5,7 @@ namespace App\Policies;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
-class UserPolicy
+class SendEmailPolicy
 {
     use HandlesAuthorization;
 
@@ -15,12 +15,6 @@ class UserPolicy
      * @param  \App\Models\User  $user
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function before($user, $ability)
-    {
-    if ($user->permission === false) {
-        return true;
-    }
-}
     public function viewAny(User $user)
     {
         //
@@ -33,6 +27,11 @@ class UserPolicy
      * @param  \App\Models\User  $model
      * @return \Illuminate\Auth\Access\Response|bool
      */
+    public function sendEmail(User $user)
+    {
+        return $user->permission;
+    }
+
     public function view(User $user, User $model)
     {
         //
@@ -46,10 +45,7 @@ class UserPolicy
      */
     public function create(User $user)
     {
-        if($user->permission == true)
-            return true;
-        else
-            return false;
+        //
     }
 
     /**
@@ -73,11 +69,7 @@ class UserPolicy
      */
     public function delete(User $user, User $model)
     {
-        if($user->permission == true)
-            return true;
-        else
-            return false;
-
+        //
     }
 
     /**
