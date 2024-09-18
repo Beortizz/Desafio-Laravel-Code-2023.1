@@ -20,8 +20,8 @@ use App\Models\User;
 */
 
 Route::get('/', function () {
-    $users = User::paginate(8);
-    return view('admin.users.index', compact('users'));
+    
+    return redirect('/login');
 });
 
 Route::get('/dashboard', function () {
