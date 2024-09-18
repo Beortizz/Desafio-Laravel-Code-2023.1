@@ -87,4 +87,4 @@ Acesse o projeto em http://127.0.0.1:8000
 - Senha: bernardo1234
 
 
-![Print do projeto](/image.PNG)
+![Print do projeto](/image.png)
